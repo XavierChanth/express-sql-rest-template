@@ -29,6 +29,9 @@ app.use(bp.json());
 const events = require('events');
 events.EventEmitter.defaultMaxListeners(20); // set the default maxListeners to 20 (you may increase or set to 0 for unlimited)
 
+// sql server lib
+const models = require('./models');
+
 if(cluster.isMaster) {
 
   console.log(`Starting: MASTER ${process.pid}`);
@@ -44,14 +47,22 @@ if(cluster.isMaster) {
   });
 
 } else {
+  models.db.sync().then(() => {
+    // upsert default/backup accounts
+  }).then(async () => {
 
-  // initialize the endpoints
-  app = initApp(app);
+    // initialize the endpoints
+    app = initApp(app, models);
 
-  // start the app
-  app.listen(port, () => {
-    console.log(`start: CLUSTER ${process.pid}`);
-    console.log(`PORT: ${port}`);
+    // start the app
+    app.listen(port, () => {
+      console.log(`start: CLUSTER ${process.pid}`);
+      console.log(`PORT: ${port}`);
+    });
+
+  }).catch((e) => {
+    console.error(e);
+    process.exit(1);
   });
 
 }
