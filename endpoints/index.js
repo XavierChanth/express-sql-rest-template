@@ -1,6 +1,6 @@
 import initApi from ('./api');
 
-export default (app) => {
+export default (app, models) => {
   // The '/' endpoint
 
   app.options('/', (req, res) => {
@@ -20,6 +20,6 @@ export default (app) => {
     // runs when calling next [add to (req, res) args to become (req, res, next)]
   });
 
-  app = initApi(app);
+  app = initApi(app, models);
   return app;
 };

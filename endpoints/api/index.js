@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-export default (app) => {
+export default (app, models) => {
   // The '/api' endpoint
 
   app.options('/', (req, res) => {
