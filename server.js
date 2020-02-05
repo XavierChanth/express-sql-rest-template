@@ -1,3 +1,8 @@
+// View advanced topics at:
+// https://expressjs.com/
+// For more configuration options
+// Security and performance best practice options are available here
+
 // set up server
 const express = require('express');
 let app = express();
