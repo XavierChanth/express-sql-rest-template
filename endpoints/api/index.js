@@ -3,15 +3,15 @@ const router = require('express').Router();
 module.exports = (app, models) => {
   // The '/api' endpoint
 
-  app.options('/', (req, res) => {
+  router.options('/', (req, res) => {
     
   });
 
-  app.get('/', (req, res) => {
+  router.get('/', (req, res) => {
 
   });
 
-  app.post('/', (req, res) => {
+  router.post('/', (req, res) => {
 
   });
 
