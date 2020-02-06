@@ -18,5 +18,8 @@
     "helmet": "^3.21.2",
     "os": "^0.1.1",
     "sequelize": "^5.21.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   }
 }
