@@ -27,7 +27,7 @@ app.use(bp.json());
 
 // event control
 const events = require('events');
-events.EventEmitter.defaultMaxListeners(20); // set the default maxListeners to 20 (you may increase or set to 0 for unlimited)
+events.EventEmitter.defaultMaxListeners = 20; // set the default maxListeners to 20 (you may increase or set to 0 for unlimited)
 
 // sql server lib
 const models = require('./models');

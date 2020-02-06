@@ -1,5 +1,5 @@
 module.exports = (db, Type) => {
-  const Example = sequelize.define('example', {
+  const Example = db.define('example', {
     id: {
       type: Type.INTEGER,
       primaryKey: true,

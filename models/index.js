@@ -1,10 +1,10 @@
 require('dotenv').config();
-const SQl = require('sequelize');
+const SQL = require('sequelize');
 // TODO add to docs:
 // to install your version SQL module
 // .env file config and rename
 
-const db = new SQl(
+const db = new SQL(
   (process.env.NODE_ENV === 'production') ? process.env.PROD_DB_NAME : process.env.DEV_DB_NAME,
   process.env.DB_USER,
   process.env.DB_PASS,
@@ -21,7 +21,7 @@ const db = new SQl(
 );
 
 const models = {
-  Example: sequelize.import('./example')
+  Example: db.import('./example')
 };
 
 // Associate the models

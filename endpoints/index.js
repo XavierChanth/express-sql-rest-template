@@ -1,6 +1,6 @@
-import initApi from ('./api');
+const initApi = require('./api');
 
-export default (app, models) => {
+module.exports = (app, models) => {
   // The '/' endpoint
 
   app.options('/', (req, res) => {
